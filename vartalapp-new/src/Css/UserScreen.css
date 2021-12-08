@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+.usercontrolMainContainer{
+    width:100%;
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+    height: auto;
+    background-color: #131c21;
+    color: white;
+    /* height: 100vh; */
+}
+.userInfo{
+    width: 100%;
+    display: flex;
+    /* border: 1px solid white; */
+    display: flex;
+    padding-left: 3%;
+    background-color: #21313a;
+    justify-content: center;
+    align-items: center;
+}
+.userIMG{
+    width: 14%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: #21313a;
+    /* border: 1px solid white; */ 
+}
+.userIMG img{
+    width: 100%;
+    height: 85%;
+    border-radius: 50%;
+}
+.userName{
+    background-color: #21313a;
+    width: 80%;
+    height: auto;
+    /* border:1px solid lightblue; */
+    padding-left: 5%;
+}
+.username1{
+    font-size: 1.15rem;
+    background-color: #21313a;
+}
+.userAbout{
+    color: lightgrey;
+    background-color: #21313a;
+    font-size: 1rem;
+}
+.updateUser{
+    background-color: #21313a;
+    margin-top: 2rem;
+}
+.photochange{
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  padding-left: 3%;
+  background-color: #21313a;
+  border-top: 0.5px solid #19262e;
+  cursor: pointer;
+  
+}
+.photochange >p{
+    background-color: #21313a;
+    font-size: 1.2rem;
+    margin-left: 5%;
+    font-weight: lighter;
+    
+}
+.changename_style{
+    position:absolute;
+    bottom: 0rem;
+    left: 0;
+    z-index: 100;
+    /* border: 1px solid green; */
+    width: 100%;
+    /* border: 1px solid green; */
+    padding-left: 2rem;
+    background-color: #262d31;
+    /* border-radius: .6rem .6rem .6rem .6rem; */
+    border-radius: 0.8rem 0.8rem 0 0;
+}
+.twoName_button{
+    display: flex;
+    border: none;
+    width: 93%;
+    /* border: 1px solid white; */
+    outline: none;
+    background-color: #262d31;
+    padding-top: 1.7rem;
+   padding-bottom: 1.1rem;
+   flex-direction: row-reverse;
+}
+.changename_style>p{
+   padding-top: 01rem;
+   padding-bottom: 1rem;
+   font-size: .95rem;
+   background-color: #262d31;
+   width: 80%;
+
+}
+
+.namechange_input{
+    width: 89%;
+    background-color: #262d31
+    ;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    border-bottom:2px solid rgb(0, 175, 156);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    
+}
+.twoName_button>button{
+    border: none;
+    outline: none;
+    margin-left: 2rem;
+    font-weight: 600;
+    background-color: #262d31;
+    color: #8d9396;
+    font-size: 1.1rem;
+    cursor: pointer;
+    
+}
+.loading{
+    width: 100%;
+    z-index: 100;
+    position: absolute;
+    bottom: 0rem;
+    top:0rem;
+    background-color: #131c21;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+
+}
+.loading>img{
+    margin-top: 40vh;
+}
+.covercontainer{
+    width: 100%;
+    height: 70vh;
+    position: absolute;
+    z-index: 1;
+    top:0
+}
+.profileshow{
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    z-index: 2;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.profileshow>p{
+    font-size: 1.25rem;
+}
+.profileshowpara{
+    display: flex;
+    /* align-items: center; */
+    /* border: 1px solid green; */
+    margin-top:.5rem;
+    padding-top: .3rem;
+    
+}
+.profileshowIMG{
+    width: 100%;
+    height: auto;
+    margin-top: 6rem;
+   
+}
+.profileshowIMG>img{
+    width: 100%;
+    height: auto;
+}
+@media(min-height:800px){
+    .profileshowIMG{
+        margin-top: 10rem;
+    }
+}
+@media(max-height:482px){
+    .profileshowIMG{
+        margin-top: 3rem;
+    }
+    }
+/* @media(max-width:281px){
+    .profileshowIMG{
+       margin-top :9rem;
+    }
+    } */
+
+    

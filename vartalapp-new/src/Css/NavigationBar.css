@@ -1,0 +1,77 @@
+.header{
+    display: block;
+    background-color:#364147;
+    
+}
+/* @media (max-width:650px) {
+    .header{
+        #263238
+        display: none;
+    }
+    
+} */
+.header-top{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0.7rem 1.2rem 0.7rem 1.2rem;
+    color:white; 
+    background-color:#364147;
+    position: fixed;
+}
+.header-top img{
+    color:white;
+    height:auto;
+    width: 6%;
+    background-color:#364147;
+}
+.header-top >p{
+    font-size: 1.35rem;
+    font-weight: 500;
+    background-color:#364147;
+}
+.header-bottom{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    color: white;
+    background-color:#364147;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.7rem 0rem 0.6rem 0rem;
+    
+}
+.header-bottom>a:active{
+    color: lightgreen;
+}
+.header-bottom>a:hover{
+    color: lightgreen;
+}
+.header-bottom>a>div{
+    display: flex;
+    background-color:#364147;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+   
+}
+.header-bottom>a>div>p{font-size: 0.65rem; background-color:#364147;}
+.hb1{
+  margin-top: 0.2rem;
+  display: flex;
+  justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color:#364147;
+}
+.header-bottom>a{
+    color: white;
+    background-color:#364147;
+}
+.allroutes{
+    display: flex;
+}

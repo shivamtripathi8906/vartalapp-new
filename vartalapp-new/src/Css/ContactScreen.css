@@ -1,0 +1,44 @@
+.mainContactCont{
+    
+    width:100%;
+    padding-top: 4.2rem;
+    padding-bottom: 4rem;
+    height: auto;
+    background-color: #131c21;
+    color: white;
+    height: auto;
+    padding-bottom: 4rem;
+}
+.showUserContact{
+    width: 99.8%;
+    height: auto;
+    display: flex;
+    padding-left: 3%;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-radius: 20rem;
+    background-color: #1d2d36;
+}
+
+.contactPhoto{
+    width: 13%;
+    background-color: #1d2d36;
+    border-radius: 50%;
+    height: auto;
+    margin-bottom: 0.2rem;
+    margin-top: 0.5rem;
+}
+
+.contactPhoto>img{
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.contactDetails{
+    width: 70%;
+    background-color: #1d2d36;
+    padding-left: 5%;
+    line-height: 1.2rem;
+}
+.contactDetails p{background-color: #1d2d36;}

@@ -1,0 +1,33 @@
+.messageMainconatiner{
+    width: 100%;
+    height: auto;
+    /* border: 1px solid green; */
+    padding: 4rem 0.5rem 4rem .5rem;
+    min-height:  -webkit-fill-available;
+}
+.messageContactConatiner{
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid grey;
+    display: flex;
+    align-items: center;
+
+}
+.messageUserImg{
+    width: 13.5%;
+    height: auto;
+    margin-left: 0.3rem;
+    margin-bottom: 0.2rem;
+    margin-top: 0.4rem;
+}
+.messageUserImg>img{
+    width: 100%;
+    height: auto;
+    border-radius: 50% ;
+}
+.messageUserDetails{
+    margin-left: 1rem;
+    color: white;
+    
+
+}

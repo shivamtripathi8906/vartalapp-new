@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Oswald&display=swap');
+
+.fillformMainCont{
+    background-color: #131c21;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+.mandatoryMessage{
+    color: white;
+    
+    margin-bottom: 1rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    position: absolute;
+    bottom: 0;
+}
+.fillform_Photo{
+    width: 100%;
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+.userProfilePhoto img{
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    
+    /* transform: translateX(-50%); */
+    /* position: relative;
+    display:inline-block ;  */
+}
+.userProfilePhoto{
+    /* border: 1px solid pink; */
+    width: 39%;
+    overflow: hidden;
+    
+    border-radius: 50%;
+}
+.inputForProfile{
+    /* border: 1px solid green; */
+    margin-top: 1rem;
+    width: 9.7%;
+    height: fit-content;
+    /* position: absolute; */
+    display: flex;
+    /* z-index: 1;
+    top: 6rem;
+    right: 0%; */
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(4, 145, 4);
+}
+.userProfileDetails{
+    border-bottom:1px solid white;
+    width: 65%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+.userProfileDetails input{
+    color: white;
+    background-color: #131c21;
+    outline: none;
+    text-align: center;
+    border: none;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1rem;
+    padding-bottom: 0.2rem;  
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+}
+.userProfileDetails input,textarea::placeholder{
+    color: white;
+    background-color: #131c21;
+    outline: none;
+    text-align: center;
+    border: none;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1rem;
+    padding-bottom: 0.2rem;  
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+}
+.confirmbutt{
+    width: fit-content;
+}
+.confirmbutt a{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-top: 3rem;
+    color: white;
+    background-color: rgb(4, 145, 4);
+    font-family: 'Nunito', sans-serif;
+}
+.input{
+    background-color: #131c21;
+}
