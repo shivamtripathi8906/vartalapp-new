@@ -6,7 +6,6 @@ import { db } from "../Config/Config";
 import { useEffect, useState } from "react";
 import { auth } from "../Config/Config";
 import L1 from "../Images/load.svg";
-// import { GrAttachment } from "react-icons/gr";
 import firebase from "@firebase/app-compat";
 import { storage } from "../Config/Config";
 import B1 from "../Images/bgWall.jpg";
@@ -174,7 +173,34 @@ const ChatScreen=(props)=>{
       }
     },[chatupdate, id])
 
-  //  console.log(allchats)
+
+  function tConvert (time) {
+    time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+  
+    if (time.length > 1) { 
+      time = time.slice (1);  // Remove full string match value
+      time[5] = +time[0] < 12 ?  ' am' : ' pm'; 
+      time[0] = +time[0] % 12 || 12; // Adjust hours
+    }
+    return time.join (''); 
+  }
+
+  const [messageimageshowstyle, setMessageimageshowstyle] = useState("none");
+  const [onlyparticularimageshow, setOnlyparticularimageshow] = useState("")
+
+  const handleMessageImageShow=(t)=>{
+    
+    if(messageimageshowstyle==="none"){
+    setMessageimageshowstyle("block");
+    setOnlyparticularimageshow(t)
+    }
+    else{
+    setMessageimageshowstyle("none");
+    setOnlyparticularimageshow("");
+    }
+  }
+  
+
    
     return(
         <>
@@ -224,18 +250,19 @@ const ChatScreen=(props)=>{
                 {
                   (()=>{
                     if(chats.sender===userId && chats.image===""){
-                      return (<div className="user" ><p id="user">{chats.message}</p></div>)
+                      return (<div className="user" ><div id="user"><p >{chats.message}</p><p className="timeMessage">{tConvert(chats.time.slice(16,21))}</p></div></div>)
                     }
                     if(chats.sender!==userId && chats.image===""){
-                      return (  <div className="sender">{chats.message}</div>)
+                      return (  <div className="sender"><p>{chats.message}</p><p className="timeMessage timemessage-receive">{tConvert(chats.time.slice(16,21))}</p></div>)
                     }
                     if(chats.sender===userId && chats.image!=="")
-                    return ( <div className="messageimageCont"><div className=" message-image"><img src={chats.image} alt="imagemessage"/></div></div>)
+                    return ( <div className="messageimageCont" onClick={(e)=>{e.stopPropagation();handleMessageImageShow(chats.image)}}><div className=" message-image"><img src={chats.image} alt="imagemessage"/><p></p></div><p></p></div>)
                     if(chats.sender!==userId && chats.image !=="")
                     return( <div className="messageimageContReceiver"><div className=" message-imageReceive"><img src={chats.image} alt="imagemessage"/></div></div> )
                   
                   })()
                 }
+                
              </div>
              ))}
 
@@ -243,6 +270,11 @@ const ChatScreen=(props)=>{
          </div>
          
        </div>
+       <div className="messageimage_show" style={{display:`${messageimageshowstyle}`}} >
+       <p onClick={(e)=>{e.stopPropagation();handleMessageImageShow()}} className="imageclosebutton">Close</p>
+        <div className="messageimage_showIndiseDIv"> {onlyparticularimageshow!=="" ? <img  src={onlyparticularimageshow} alt="" />: null}</div>
+         
+         </div>
       </div>
         
     

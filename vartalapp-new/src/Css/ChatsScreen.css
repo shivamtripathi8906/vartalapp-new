@@ -117,7 +117,7 @@
     position: absolute;
     z-index: 1;
     /* margin-top: 3.5rem; */
-    top:3.5rem;
+    top:3.8rem;
     bottom :3rem;
     overflow-y: scroll;
 
@@ -130,7 +130,6 @@
 .sender{
     /* border:1px solid green; */
     margin-top: 0.2rem;
-    display: flex;
     justify-content: flex-start;
     width: fit-content;
     background-color: #3a4144;
@@ -211,4 +210,41 @@
     height: auto;
     border-radius: 5px;
     margin:  .3rem .3rem .8rem 0rem;
+}
+.timeMessage{
+    font-size: 0.79rem;
+    color: #b3c7c7;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.timemessage-receive{
+    justify-content: flex-start;
+}
+.messageimage_show{
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    top:0;  bottom: 0; right:0; left:0;
+    
+    z-index: 1;
+}
+
+.messageimage_showIndiseDIv>img{
+   width: 87%;
+   height: auto;
+   margin-top: 5rem;
+}
+.imageclosebutton{
+    border: 1px solid grey;
+    margin: 0.5rem 0.5rem 0 0.5rem;
+    padding: 0.7rem;
+    text-align: center;
+}
+.messageimage_showIndiseDIv{
+    width: 100%;
+    display: flex;
+    max-height: 80vh;
+    justify-content: center;
+    background-color: black;
 }

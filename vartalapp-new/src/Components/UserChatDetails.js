@@ -4,7 +4,7 @@ import { db } from "../Config/Config";
 import { Redirect } from "react-router-dom";
 
 const UserChatsDetails=(props)=>{
-//   console.log(props.chat.id);
+//   console.log(props.chat.chats[0].time);
   const [url, setURL] =useState("")
   const[displayuser, setDisplayUser] = useState("")
 
@@ -49,10 +49,22 @@ const UserChatsDetails=(props)=>{
         <div className="mainUserConatinerMessage">
         <div className="messageContactConatiner" onClick={()=>setRedirect(props.chat.id)}>
                 <div className="messageUserImg"><img src={U1} alt="" /></div>
-                <div className="messageUserDetails"><p>{displayuser.name}</p><p style={{fontSize:"0.85rem"}}>
+                <div className="messageUserDetails"><p style={{width:"100%", }}>{displayuser.name}</p>
+                {/* {props.chat.chats[props.chat.chats.length-1].time.slice(4,15)} */}
                 {
-                    props.chat.chats.length > 0 ? props.chat.chats[props.chat.chats.length-1].message : ''
-                }</p></div>
+                    (()=>{
+                        if(props.chat.chats.length > 0)
+                        {
+                             if(props.chat.chats[props.chat.chats.length-1].message.length>34)
+                                  return (<p style={{fontSize:"0.85rem", color:"gray"}}>{`${props.chat.chats[props.chat.chats.length-1].message.slice(0,35)} ....`}</p>)
+                             else
+                                  return (<p style={{fontSize:"0.85rem", color:"gray"}}>{props.chat.chats[props.chat.chats.length-1].message}</p>)
+                        }
+                        else
+                        return (<p></p>)
+                    })()
+                }
+                </div>
             </div>
             </div>
         </>
