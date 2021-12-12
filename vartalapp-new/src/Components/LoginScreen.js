@@ -32,7 +32,7 @@ const LoginScreen=()=>{
         </div></Link>)
         :
         <Link to="/phonelogin" className="loginCompo1"><div className=" phonebutton" >
-        (<BsFillTelephoneFill size="1.1rem" style={{background:"white"}}/> &nbsp; &nbsp;Sign in with Phone
+        <BsFillTelephoneFill size="1.1rem" style={{background:"white"}}/> &nbsp; &nbsp;Sign in with Phone
         </div></Link>
         }
         {(user)?(<Link to="/messages" className=" logincompo2"><div className=" phonebutton phonebutton2" >
