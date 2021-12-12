@@ -11,6 +11,7 @@ import { storage } from "../Config/Config";
 import B1 from "../Images/bgWall.jpg";
 import { AiOutlineSend } from "react-icons/ai";
 import { TiAttachment } from "react-icons/ti"
+import { MdOutlineCancel} from "react-icons/md";
 
 
 
@@ -138,9 +139,10 @@ const ChatScreen=(props)=>{
             );
             setchatUpdate("again");
             
-    document.getElementById("myMessage").reset();
+           document.getElementById("myMessage").reset();
             //  setMessage("")
-            setShareImage("")
+            
+            
       }
       else
       {
@@ -149,10 +151,12 @@ const ChatScreen=(props)=>{
         });
         setchatUpdate("again")
         
-    document.getElementById("myMessage").reset();
-        setShareImage("")
+       document.getElementById("myMessage").reset();
+        
       }
     }
+    setShareImage("")
+    setMessage("")
     document.getElementById("content").scrollIntoView();
     return ()=>{
       mounted=false
@@ -167,7 +171,7 @@ const ChatScreen=(props)=>{
       .onSnapshot((doc)=>{
         setAllChats(doc.data().chats)
       })}
-
+      document.getElementById("content").scrollIntoView();
       return ()=>{
         mounted=false
       }
@@ -214,7 +218,7 @@ const ChatScreen=(props)=>{
        </div>
        
        <div style={{display:`${loading}`}} className="loading"><img src={L1} alt="loading"/></div>
-       {shareImage ? (<div className="shareImage"> <img src={URL.createObjectURL(shareImage)} alt="shareImg" /> </div>):null}
+       {shareImage ? (<div className="shareImage"><p className="cancel_select_photo" onClick={()=>setShareImage("")}><MdOutlineCancel size="1.6rem"/></p> <img src={URL.createObjectURL(shareImage)} alt="shareImg" /> </div>):null}
        <form id="myMessage"> 
        <div className="typeMessageContainer">
        {/* <form id="myMessage"> */}
@@ -235,7 +239,7 @@ const ChatScreen=(props)=>{
           </div>
           
     {message.length>0 || shareImage?
-          <div className="sendButton" onClick={()=>handleMessage(Date(Date.now()))}><AiOutlineSend size="2rem"/></div>
+          <div className="sendButton" onClick={()=>{handleMessage(Date(Date.now()))}}><AiOutlineSend size="2rem"/></div>
           : <p>Type</p>
        
     }
@@ -249,17 +253,36 @@ const ChatScreen=(props)=>{
                 {/* { chats.sender===userId  ? (<div className="user" ><p id="user">{chats.message}</p></div>):( <div className="sender">{chats.message}</div>)} */}
                 {
                   (()=>{
-                    if(chats.sender===userId && chats.image===""){
+                    if(chats.sender===userId && chats.image==="" )
                       return (<div className="user" ><div id="user"><p >{chats.message}</p><p className="timeMessage">{tConvert(chats.time.slice(16,21))}</p></div></div>)
-                    }
-                    if(chats.sender!==userId && chats.image===""){
+                    if(chats.sender!==userId && chats.image==="")
                       return (  <div className="sender"><p>{chats.message}</p><p className="timeMessage timemessage-receive">{tConvert(chats.time.slice(16,21))}</p></div>)
-                    }
-                    if(chats.sender===userId && chats.image!=="")
-                    return ( <div className="messageimageCont" onClick={(e)=>{e.stopPropagation();handleMessageImageShow(chats.image)}}><div className=" message-image"><img src={chats.image} alt="imagemessage"/><p></p></div><p></p></div>)
-                    if(chats.sender!==userId && chats.image !=="")
-                    return( <div className="messageimageContReceiver"><div className=" message-imageReceive"><img src={chats.image} alt="imagemessage"/></div></div> )
-                  
+                    if(chats.sender===userId && chats.image!=="" && chats.message==="")
+                    return ( <div className="messageimageCont" onClick={(e)=>{e.stopPropagation();handleMessageImageShow(chats.image)}}><div className=" message-image"><img src={chats.image} alt="message-im"/><div style={{textAlign:"right", fontSize:"0.79rem", color:"#b3c7c7", marginBottom:"0.3rem"}}>{tConvert(chats.time.slice(16,21))}</div></div>  </div>)
+                    if(chats.sender!==userId && chats.image !=="" && chats.message==="")
+                    return( <div className="messageimageContReceiver" onClick={(e)=>{e.stopPropagation();handleMessageImageShow(chats.image)}}><div className=" message-imageReceive"><img src={chats.image} alt="message-"/><div style={{textAlign:"left", fontSize:"0.79rem", color:"#b3c7c7", marginBottom:"0.3rem"}}>{tConvert(chats.time.slice(16,21))}</div></div></div> )
+                    if(chats.sender===userId && chats.image!=="" && chats.message!=="")
+                    return (<div className="messageimageBothContainer">
+                      <div className="messageimageBothContainerColored">
+                        <div className="messageimageBothContainerImage" onClick={(e)=>{e.stopPropagation();handleMessageImageShow(chats.image)}}>
+                          <img src={chats.image} alt="messagetextimage" />
+                        </div>
+                        <p>{chats.message}</p>
+                        <p style={{textAlign:"right", fontSize:"0.79rem", color:"#b3c7c7", marginBottom:"0.3rem"}}>{tConvert(chats.time.slice(16,21))}</p>
+                      </div>
+                    </div>)
+                    if(chats.sender!==userId && chats.image!=="" && chats.message!=="")
+                    return ( <div className="messageimageBothContainerReceived">
+                       <div className="messageimageBothContainerColoredReceived">
+                        <div className="messageimageBothContainerImageReceived" onClick={(e)=>{e.stopPropagation();handleMessageImageShow(chats.image)}}>
+                          <img src={chats.image} alt="messagetextimagereceived" />
+                        </div>
+                        <p>{chats.message}</p>
+                        <p style={{textAlign:"left", fontSize:"0.79rem", color:"#b3c7c7", marginBottom:"0.3rem"}}>{tConvert(chats.time.slice(16,21))}</p>
+                      </div> 
+
+                    </div> 
+                    )
                   })()
                 }
                 

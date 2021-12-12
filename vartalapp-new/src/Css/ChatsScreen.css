@@ -81,15 +81,27 @@
     
 }
 .shareImage{
-    width: 20%;
-    height: 3rem;
+    width: 100%;
     position: absolute;
-    bottom: 10vh;
+    /* border: 1px solid white;
+     */
+     background-color: black;
+    top:0;
+    bottom:0 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 .shareImage>img{
-    width: auto;
-    height: 100%;
+    width: 100%;
+    height: auto;
+}
+.cancel_select_photo{
+    position: absolute;
+    z-index: 12;
+    top: 1rem;
+    left: 1rem;
 }
 .showMessageContainer{
     width: 100%;
@@ -173,16 +185,18 @@
     margin-top: 0.2rem;
     display: flex;
     justify-content: flex-end;
-    padding-left: .6rem;
+    padding-left: .3rem;
     background-color: #1d6f70;
     border-radius: 4px;
+    flex-direction: column;
+    padding-right: 0.3rem;
     
 }
 .message-image>img{
     width: 100%;
     height: auto;
     border-radius: 5px;
-    margin: .3rem .3rem .8rem 0rem;
+    margin: .3rem .0rem .25rem 0rem;
 }
 .messageimageCont{
     width: 100%;
@@ -200,8 +214,10 @@
     /* border: 1px solid white; */
     margin-top: 0.2rem;
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
-    padding-left: .6rem;
+    padding-left: .3rem;
+    padding-right: .3rem;
     background-color: #3a4144;
     border-radius: 4px;
 }
@@ -209,7 +225,7 @@
     width: 100%;
     height: auto;
     border-radius: 5px;
-    margin:  .3rem .3rem .8rem 0rem;
+    margin:  .3rem .0rem .25rem 0rem;
 }
 .timeMessage{
     font-size: 0.79rem;
@@ -247,4 +263,64 @@
     max-height: 80vh;
     justify-content: center;
     background-color: black;
+}
+.messageimageBothContainer{
+    margin-top: 0.2rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    /* padding: 0 0.3rem 0 0.3rem; */
+}
+.messageimageBothContainerColored{
+    width: 60%;
+    height: auto;
+    background-color: #1d6f70;
+    display: flex;
+    flex-direction: column;
+    padding-left: .3rem;
+    border-radius: 4px;
+    padding-right: 0.3rem;
+}
+.messageimageBothContainerImage{
+    width: 100%;
+    height: auto;
+
+}
+.messageimageBothContainerImage>img{
+    width: 100%;
+    height: auto;
+    margin:  .3rem .0rem .2rem 0rem;
+    border-radius: 5px;
+}
+.messageimageBothContainerColored>p{
+    font-size: .9rem;
+}
+.messageimageBothContainerReceived{
+    margin-top: 0.2rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.messageimageBothContainerColoredReceived{
+    width: 60%;
+    height: auto;
+    background-color: #3a4144;
+    display: flex;
+    flex-direction: column;
+    padding-left: .3rem;
+    border-radius: 4px;
+    padding-right: 0.3rem;
+}
+.messageimageBothContainerImageReceived{
+    width: 100%;
+    height: auto;
+}
+.messageimageBothContainerImageReceived>img{
+    width: 100%;
+    height: auto;
+    margin:  .3rem .0rem .2rem 0rem;
+    border-radius: 5px;
+}
+.messageimageBothContainerColoredReceived>p{
+    font-size: .9rem;
 }

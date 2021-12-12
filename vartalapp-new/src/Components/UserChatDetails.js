@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { db } from "../Config/Config";
 import { Redirect } from "react-router-dom";
+import {HiOutlinePhotograph} from "react-icons/hi"
 
 const UserChatsDetails=(props)=>{
 //   console.log(props.chat.chats[0].time);
@@ -53,7 +54,7 @@ const UserChatsDetails=(props)=>{
                 {/* {props.chat.chats[props.chat.chats.length-1].time.slice(4,15)} */}
                 {
                     (()=>{
-                        if(props.chat.chats.length > 0)
+                        if( props.chat.chats[props.chat.chats.length-1].message!=="")
                         {
                              if(props.chat.chats[props.chat.chats.length-1].message.length>34)
                                   return (<p style={{fontSize:"0.85rem", color:"gray"}}>{`${props.chat.chats[props.chat.chats.length-1].message.slice(0,35)} ....`}</p>)
@@ -61,7 +62,7 @@ const UserChatsDetails=(props)=>{
                                   return (<p style={{fontSize:"0.85rem", color:"gray"}}>{props.chat.chats[props.chat.chats.length-1].message}</p>)
                         }
                         else
-                        return (<p></p>)
+                        return (<p style={{fontSize:"0.85rem", color:"gray", display:"flex", alignItems:"center"}}><HiOutlinePhotograph size="1.1rem"/> &nbsp;Photo</p>)
                     })()
                 }
                 </div>

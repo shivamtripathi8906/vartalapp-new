@@ -1,6 +1,6 @@
 import NavigationBar from "./NavigationBar";
 import U1 from "../Images/nouser.jpg";
-import { HiOutlineLogout} from "react-icons/hi";
+// import { HiOutlineLogout} from "react-icons/hi";
 import { SiNamecheap } from "react-icons/si";
 import { CgProfile } from "react-icons/cg";
 import { BsTextCenter } from "react-icons/bs";
@@ -135,7 +135,7 @@ const UserScreen=()=>{
                 <div className="photochange" onClick={(e)=>{e.stopPropagation();handleAbout()}}><BsTextCenter size="1.9rem" color="lightblue"  style={{ background: '#21313a' }}/><p>Edit about</p></div>
                 
                 <div style={{display:`${loading}`}} className="loading"><img src={L1} alt="loading"/></div>
-                <div className="photochange" ><HiOutlineLogout size="1.9rem" color="red"  style={{ background: '#21313a' }}/><p>Log out</p></div>
+                {/* <div className="photochange" ><HiOutlineLogout size="1.9rem" color="red"  style={{ background: '#21313a' }}/><p>Log out</p></div> */}
             </div>
             <div className="profileshow" style={{display:`${profileshow1}`}}>
             <p className="profileshowpara"> &nbsp;&nbsp;<AiOutlineArrowLeft size="1.4rem" onClick={(e)=>{e.stopPropagation(); profileshow()}}/>&nbsp; &nbsp; &nbsp;  Profile picture</p>

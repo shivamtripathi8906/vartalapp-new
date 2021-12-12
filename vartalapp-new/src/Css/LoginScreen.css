@@ -83,6 +83,24 @@
     box-shadow:  0.1px 3.5px 14px rgb(136, 139, 137);
     margin-top: 1.2rem;
 }
+.logincompo2{
+    display: flex;
+    align-items: center;
+    width: 75%;
+    border: 1px solid  white;
+    height: auto;
+    border-radius: 20rem;
+    background-color: white;
+    height:3.1rem;
+    box-shadow:  0.1px 3.5px 14px rgb(136, 139, 137);
+    margin-top: 1.2rem;
+    justify-content: center;
+}
+.phonebutton2{
+    width: auto;
+    display: flex;
+    align-items: center;
+}
 .from1{
     margin-top: 3.5rem;
 }

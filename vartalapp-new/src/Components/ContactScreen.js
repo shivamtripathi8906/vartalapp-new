@@ -11,17 +11,15 @@ const ContactScreen=()=>{
     const [contactdata, setContactData]= useState([]);
     const [loading, setloading]=useState("");
     const [mainuserdataId, setMainUserDataId]= useState();
-    const [redirectToChat, setRedirectToChat] = useState("")
-    // console.log(contactdata[0].data())
-    // console.log("13", mainuserdataId)
+    const [redirectToChat, setRedirectToChat] = useState("");
     const [profileshow1, setprofileShow1]= useState("none");
 
-     const profileshow = ()=>{
-       if(profileshow1==="none")
-        setprofileShow1("block")
-        else
-        setprofileShow1("none")
-     }
+    const profileshow = ()=>{
+      if(profileshow1==="none")
+         setprofileShow1("block")
+      else
+         setprofileShow1("none")
+    }
 
 
     useEffect(()=>{
@@ -30,15 +28,15 @@ const ContactScreen=()=>{
               db.collection('UserData').where('phone', '==',user.phoneNumber).get() 
               .then((querySnapshot) => {
                 // console.log(querySnapshot.docs)
-                  db.collection('UserData').get()
-                  .then(snapshot => setMainUserDataId(querySnapshot.docs[0].id))  
+                   db.collection('UserData').get()
+                   .then(snapshot => setMainUserDataId(querySnapshot.docs[0].id))  
               })
 
               db.collection('UserData').where('phone', '!=',user.phoneNumber).get()
               .then((querySnapshot) => {
                 // console.log(querySnapshot.docs)
-                  db.collection('UserData').get()
-                  .then(snapshot => setContactData(querySnapshot.docs))  
+                   db.collection('UserData').get()
+                   .then(snapshot => setContactData(querySnapshot.docs))  
               })
             }
           })
@@ -46,51 +44,42 @@ const ContactScreen=()=>{
 
      useEffect(()=>{
       if(contactdata==="")
-        setloading("block")
+         setloading("block")
       else
-        setloading("none")
+         setloading("none")
      },[contactdata])
 
      const setUserChatstoFirestore=(e, id)=>{
        let uId=id;
         db.collection('UserChats').where('participants', "array-contains", `${mainuserdataId}`).get()
-                .then((querySnapshot) => {
-                    if (querySnapshot.size > 0) {
-                      let flag=0;
-                      let chatID=100;
-                      // setRedirectToChat(`chats/${querySnapshot.docs[0].id}`)
-                        // console.log(querySnapshot.docs)
-                        // console.log(querySnapshot.docs[0].data().participants)
-                        for(let i=0;i<querySnapshot.size;i++)
-                        {
-                          if((querySnapshot.docs[i].data().participants[0]===mainuserdataId && querySnapshot.docs[i].data().participants[1]===id) || (querySnapshot.docs[i].data().participants[0]===id && querySnapshot.docs[i].data().participants[1]===mainuserdataId)){
+            .then((querySnapshot) => {
+                if (querySnapshot.size > 0) {
+                   let flag=0;
+                   let chatID=100;
+                   for(let i=0;i<querySnapshot.size;i++)
+                   {
+                       if((querySnapshot.docs[i].data().participants[0]===mainuserdataId && querySnapshot.docs[i].data().participants[1]===id) || (querySnapshot.docs[i].data().participants[0]===id && querySnapshot.docs[i].data().participants[1]===mainuserdataId)){
                             chatID=i; 
                             flag=1;
                             break;
-                          }
+                       }
                           
-                        }
-                        if(flag===0)
-                        {
-                          // console.log("not pre")
-                          db.collection("UserChats").add({
-                                chats:[],
-                                participants:[mainuserdataId,uId]
-                              })
-                              .then(
-                                  db.collection('UserChats').where('participants', "==", [`${mainuserdataId}`,`${id}`]).get()
-                                  .then((querySnapshot) => {
-                                    setRedirectToChat(`/contacts/chats/${querySnapshot.docs[0].id}`)
-                                    // console.log(querySnapshot)
-                                  }))
-                        }
-                          
-
-
-                          else{
-                          // console.log("present");
-                          setRedirectToChat(`/contacts/chats/${querySnapshot.docs[chatID].id}`)}
-                    }
+                   }
+                   if(flag===0)
+                   {
+                      db.collection("UserChats").add({
+                         chats:[],
+                         participants:[mainuserdataId,uId]
+                      })
+                      .then(
+                          db.collection('UserChats').where('participants', "==", [`${mainuserdataId}`,`${id}`]).get()
+                          .then((querySnapshot) => {
+                              setRedirectToChat(`/contacts/chats/${querySnapshot.docs[0].id}`)
+                          }))
+                   } 
+                   else
+                   {setRedirectToChat(`/contacts/chats/${querySnapshot.docs[chatID].id}`)}
+                 }
                     else {
                         db.collection("UserChats").add({
                             chats:[],
@@ -109,17 +98,6 @@ const ContactScreen=()=>{
                   })
 
      }
-    
-     
-
-
-    // const setUserChatstoFirestore=(e, id)=>{
-    //   console.log(id)
-    //   db.collection('UserChats').where('participants', "array-contains", `${mainuserdataId}`).get()
-
-    // }
-
-    //  console.log(redirectToChat)
     
     return(
         <>
